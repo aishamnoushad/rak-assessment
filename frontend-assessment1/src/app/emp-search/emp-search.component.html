@@ -1,0 +1,53 @@
+<div class="container">
+    <br/>
+    <h1>List of Employees</h1>
+    <hr/>
+  
+    <form  (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="form-group">
+            <label>Employee Number</label>
+            <input type="number" class="form-control"  required maxlength="10" id="id" [(ngModel)]="search.id"
+                name="id">
+                <!-- <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert">
+                     <div *ngIf="employeeDetailsForm?.controls['id']?.errors.required"> 
+                        <div *ngIf="id.errors.required">
+                        Employee Number is required and cannot be more than 10 digits
+                  </div>
+                </div> -->
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control"  id="employeeName" required [(ngModel)]="search.employeeName"
+                name="employeeName">
+                <!-- <div *ngIf="employeeDetailsForm.controls['employeeName'].invalid && (employeeDetailsForm.controls['employeeName'].dirty || employeeDetailsForm.controls['employeeName'].touched)" class="alert">
+                    <div *ngIf="employeeDetailsForm.controls['employeeName'].errors.required">
+                        Employee Name is required 
+                  </div>
+                </div> -->
+        </div>
+
+        <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+  
+    <br/>
+    <div>
+        <div>
+            <label> <b> Employee Number </b></label> {{employee.id}}
+            
+        </div>
+        <div>
+            <label> <b> Employee Name </b></label> {{employee.employeeName}}
+        </div>
+        <div>
+            <label> <b> Date of Joining </b></label> {{employee.dateOfJoining}}
+        </div>
+        <div>
+            <label> <b> Department </b></label> {{employee.department}}
+        </div>
+        <div>
+            <label> <b> salary </b></label> {{employee.salary}}
+        </div>
+    </div>
+      
+  </div>

@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h3 class="text-center"> Create Employee </h3>
+            <hr />
+            <div class="card-body">
+                <form [formGroup]="employeeDetailsForm" (ngSubmit)="onSubmit()" novalidate>
+
+                    <div class="form-group">
+                        <label>Employee Number</label>
+                        <input type="number" class="form-control" formControlName="id" required maxlength="10" id="id" [(ngModel)]="employee.id"
+                            name="id">
+                            <!-- <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert">
+                                 <div *ngIf="employeeDetailsForm?.controls['id']?.errors.required"> 
+                                    <div *ngIf="id.errors.required">
+                                    Employee Number is required and cannot be more than 10 digits
+                              </div>
+                            </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="employeeName" id="employeeName" required [(ngModel)]="employee.employeeName"
+                            name="employeeName">
+                            <!-- <div *ngIf="employeeDetailsForm.controls['employeeName'].invalid && (employeeDetailsForm.controls['employeeName'].dirty || employeeDetailsForm.controls['employeeName'].touched)" class="alert">
+                                <div *ngIf="employeeDetailsForm.controls['employeeName'].errors.required">
+                                    Employee Name is required 
+                              </div>
+                            </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select class="form-control" id="department" formControlName="department" required [(ngModel)]="employee.department"
+                        name="department">
+                            <option value=""> Please choose one </option>
+                            <option *ngFor="let department of departments" [ngValue]="department.code">{{department.department_name}}</option>
+                         </select>
+                         <!-- <div *ngIf="employeeDetailsForm.controls['department'].invalid && (employeeDetailsForm.controls['department'].dirty || employeeDetailsForm.controls['department'].touched)" class="alert">
+                            <div *ngIf="employeeDetailsForm.controls['department'].errors.required">
+                                Please select the department
+                          </div>
+                        </div> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Joining Date</label>
+                        <input id="dateOfJoining" name="dateOfJoining" formControlName="dateOfJoining" class="form-control" required [(ngModel)]="employee.dateOfJoining"  placeholder="Enter Your Date of Birth" type="text" bsDatepicker/>
+                        <!-- <div *ngIf="employeeDetailsForm.controls['dateOfJoining'].invalid && (employeeDetailsForm.controls['dateOfJoining'].dirty || employeeDetailsForm.controls['dateOfJoining'].touched)" class="alert">
+                            <div *ngIf="employeeDetailsForm.controls['dateOfJoining'].errors.required">
+                                Date of Joining is required
+                          </div>
+                        </div> -->
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="number" class="form-control" formControlName="salary" id="salary" required [(ngModel)]="employee.salary"
+                            name="salary">
+                            <!-- <div *ngIf="employeeDetailsForm?.salary?.invalid && (employeeDetailsForm?.salary?.touched)" class="alert">
+                                <div *ngIf="employeeDetailsForm?.salary?.errors.required">
+                                    Date of Joining is required
+                              </div>
+                            </div> -->
+                    </div>
+                    <br />
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-success" type="reset">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
